@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, CreditCard } from "lucide-react";
+import { ArrowUpRight, CreditCard } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {

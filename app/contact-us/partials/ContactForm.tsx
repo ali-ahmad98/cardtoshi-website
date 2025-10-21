@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const ContactForm = () => {
-  const { toast } = useToast();
+  // const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -42,10 +41,12 @@ const ContactForm = () => {
         throw new Error(data.error || "Failed to send message");
       }
 
-      toast({
-        title: "Success",
-        description: "Your message has been sent successfully!",
-      });
+      alert("Your message has been sent successfully!");
+
+      // toast({
+      //   title: "Success",
+      //   description: "Your message has been sent successfully!",
+      // });
 
       // Reset form
       setFormData({
@@ -55,12 +56,13 @@ const ContactForm = () => {
         phone: "",
         message: "",
       });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
+    } catch {
+      alert("Failed to send message. Please try again.");
+      // toast({
+      //   title: "Error",
+      //   description: "Failed to send message. Please try again.",
+      //   variant: "destructive",
+      // });
     } finally {
       setIsSubmitting(false);
     }
